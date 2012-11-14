@@ -8,17 +8,27 @@ was used in the previous 5, then I must redo the previous problem in a
 different language. The goal is to maintain diversity for as long as possible.
 
 Current Streak: 0
+
 Highest Streak: 0
 
 Problem/Language
  
 1/
+
 2/
+
 3/
+
 4/
+
 5/
+
 6/
+
 7/
+
 8/
+
 9/
+
 10/
