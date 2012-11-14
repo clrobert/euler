@@ -1,8 +1,6 @@
 project_euler_problems
 ======================
 
-All of my solved projecteuler.net problems.
-
 This is an effort by me to improve my programming chops
 by attempting to program each problem in a different language
 than the previous 5 problems. If the language I want to use
