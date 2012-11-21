@@ -1,15 +1,7 @@
 project_euler_problems
 ======================
 
-This an effort to improve my programming chops
-by attempting to program each problem in a different language
-than the previous 5 problems. If the language I want to use
-was used in the previous 5, then I must redo the previous problem in a 
-different language. The goal is to maintain diversity for as long as possible.
-
-Current Streak: 0
-
-Highest Streak: 0
+This an effort to improve my programming chops.
 
 Problem/Language
  
