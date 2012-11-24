@@ -23,6 +23,5 @@ def main():
 		sum = sum + multiple
 
 	print sum
-	print "hi"
 
 main()
