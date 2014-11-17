@@ -1,8 +1,6 @@
 project_euler_problems
 ======================
 
-This an effort to improve my programming chops.
-
 Problem/Language
  
 1/Python
