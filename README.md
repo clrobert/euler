@@ -1,24 +1,8 @@
-project_euler_problems
+Solved Problems:
 ======================
 
-Problem/Language
+Problem Language
  
-1/Python
+1 Python
 
-2/Python
-
-3/Python
-
-4/
-
-5/
-
-6/
-
-7/
-
-8/
-
-9/
-
-10/
+2 Python
