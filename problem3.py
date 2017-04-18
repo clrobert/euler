@@ -1,20 +1,34 @@
+"""The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143?
+"""
+import math
 
 
+def is_prime(n):
+    if n == 0 or n == 1:
+        return False
+    if n % 2 == 0 and n > 2:
+        return False
+    for i in range(3, math.ceil(math.sqrt(n))):
+        if n % i == 0:
+            return False
+    return True
 
-# PDL:: Sieve:
-# Create a list of consecutive integers from 2 to n: (2, 3, 4, ..., n).
-# Initially, let p equal 2, the first prime number.
-# Starting from p, count up in increments of p and mark each of these numbers greater than p itself
-# in the list. These will be multiples of p: 2p, 3p, 4p, etc.; note that some of them may have already been marked.
-# Find the first number greater than p in the list that is not marked. 
-# If there was no such number, stop. Otherwise, let p now equal this number (which is the next prime), and repeat from step 3.
 
-def largestPrimeFactor(num):
+def is_factor(a, n):
+    return n % a == 0
 
 
-def main():
-	solution = largestPrimeFactor(600851475143)
-	print solution
+def largest_prime_factor(n):
+    sqfac = math.ceil(math.sqrt(n))
+    for i in range(sqfac, 0, -1):
+        if is_factor(i, n):
+            print("%s is factor" % i)
+        if is_prime(i):
+            print("%s is prime" % i)
+        if is_factor(i, n) and is_prime(i):
+            return i
+    return 0
 
-main()
-
+lpf = largest_prime_factor(600851475143)
+print(lpf)
