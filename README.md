@@ -1,6 +1,3 @@
-Solved Problems
+PROJECT EULER
 ======================
- 
-1 Python
-
-2 Python
+Solved 1-4
