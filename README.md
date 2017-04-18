@@ -1,3 +1,3 @@
 PROJECT EULER
 ======================
-Solved 1-4
+Solved 1-10
