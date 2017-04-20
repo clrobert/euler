@@ -14,6 +14,7 @@ def is_prime(n):
             return False
     return True
 
+
 def sum_primes(end):
     sum = 0
     for i in range(0, end + 1):
