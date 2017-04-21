@@ -104,23 +104,37 @@ def get_greatest_product():
 
     for row_index in range(0, len(num_grid)):
         for col_index in range(0, len(num_grid[row_index])):
-            diagonal_product = get_diagonal_product(num_grid, row_index, col_index)
+            diagonal_right_product = get_diagonal_right_product(num_grid, row_index, col_index)
+            diagonal_left_product = get_diagonal_left_product(num_grid, row_index, col_index)
+
             horizontal_product = get_horizontal_product(num_grid, row_index, col_index)
             vertical_product = get_vertical_product(num_grid, row_index, col_index)
-            greatest_product = max(diagonal_product, horizontal_product,
+            greatest_product = max(diagonal_right_product, diagonal_left_product,
+                                   horizontal_product,
                                    vertical_product, greatest_product)
             print(row_index, col_index)
-            print(diagonal_product, vertical_product, greatest_product)
-
+            print(diagonal_right_product, diagonal_left_product, horizontal_product,
+                  vertical_product, greatest_product)
     return greatest_product
 
 
-def get_diagonal_product(num_grid, row_index, col_index):
+def get_diagonal_right_product(num_grid, row_index, col_index):
     try:
         n1 = num_grid[row_index][col_index]
         n2 = num_grid[row_index + 1][col_index + 1]
         n3 = num_grid[row_index + 2][col_index + 2]
         n4 = num_grid[row_index + 3][col_index + 3]
+        return n1 * n2 * n3 * n4
+    except IndexError:
+        return 0
+
+
+def get_diagonal_left_product(num_grid, row_index, col_index):
+    try:
+        n1 = num_grid[row_index][col_index]
+        n2 = num_grid[row_index + 1][col_index - 1]
+        n3 = num_grid[row_index + 2][col_index - 2]
+        n4 = num_grid[row_index + 3][col_index - 3]
         return n1 * n2 * n3 * n4
     except IndexError:
         return 0
@@ -152,3 +166,5 @@ print(p)
 
 # The above doesn't seem to be working. We can guess at a few other things,
 # and then try the wraparound solution.
+
+# It was the left diagonal!!
