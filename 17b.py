@@ -91,3 +91,13 @@ def show():
 
 show()
 
+
+"""
+Lessons learned:
+
+- Printing debugging statements is still useful, even when the task seems trivial.
+- Organizing and solving the project logically and in a clearly readable manner is 
+far more useful to debug errors, than is pre-optimizing the solution and attempting to 
+debug the issue from there.
+
+"""
