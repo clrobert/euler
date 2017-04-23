@@ -1,3 +1,4 @@
 PROJECT EULER
 ======================
-Solved 1-10
+Working on: 15, 17, 26
+
