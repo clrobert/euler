@@ -1,4 +1,5 @@
 PROJECT EULER
 ======================
-Working on: 15, 17, 26
+Working on: 15, 26
+Skipped: 18, 19, 20-24
 
