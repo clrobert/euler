@@ -36,7 +36,7 @@ teens = [
 tens = [
     'twenty',
     'thirty',
-    'fourty',
+    'forty',
     'fifty',
     'sixty',
     'seventy',

@@ -39,7 +39,7 @@ tens = [
     'tweens',
     'twenty',
     'thirty',
-    'fourty',
+    'forty',
     'fifty',
     'sixty',
     'seventy',
@@ -81,16 +81,16 @@ def get_word_info(n):
     return (n, word, len(word))
 
 
-def show():
+def show(end):
     word_total = 0
-    for i in range(1, 1001): 
+    for i in range(1, end): 
         word_info = get_word_info(i)
         print(word_info)
         word_total = word_total + word_info[2]
     print(word_total)
 
-show()
-
+show(6)
+show(1001)
 
 """
 Lessons learned:
