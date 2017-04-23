@@ -24,11 +24,11 @@ teens = [
     'ten',
     'eleven',
     'twelve',
-    'thirteen'
-    'fourteen'
-    'fifteen'
-    'sixteen'
-    'seventeen'
+    'thirteen',
+    'fourteen',
+    'fifteen',
+    'sixteen',
+    'seventeen',
     'eighteen',
     'nineteen'
 ]
