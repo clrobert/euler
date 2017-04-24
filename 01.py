@@ -1,5 +1,6 @@
 from sets import Set
 
+
 def getMultiplesBelowLimit(multiplier, ceiling):
 	results = Set()
 	result = 1
