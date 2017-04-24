@@ -18,28 +18,16 @@ class Node:
         self.column = column
 
     def data(self):
-        pp.pprint(self.data)
+        print(self.left, self.right, self.up, self.down)
 
     def loc(self):
         print(self.row, self.column)
 
     def fill(self, left_node, right_node, up_node, down_node):
-        self.data['left'] = left_node
-        self.data['right'] = right_node
-        self.data['up'] = up_node
-        self.data['down'] = down_node
-
-    def left(self):
-        return self.data['left']
-
-    def right(self):
-        return self.data['right']
-
-    def up(self):
-        return self.data['up']
-
-    def down(self):
-        return self.data['down']
+        self.left = left_node
+        self.right = right_node
+        self.up = up_node
+        self.down = down_node
 
 
 class Grid:
@@ -58,6 +46,9 @@ class Grid:
     def root(self):
         return self.data[0][0]
 
+    def end(self):
+        return self.data[self.size - 1][self.size - 1]
+
     def fill(self):
         for row in range(0, self.size + 1):
             for column in range(0, self.size + 1):
@@ -67,9 +58,7 @@ class Grid:
                 down = self.nested_get(row + 1, column)
                 node = self.data[row][column]
                 node.fill(left, right, up, down)
-                node.data()
-                node.loc()
-        return grid
+        return
 
     def display(self):
         for row in range(0, self.size + 1):
@@ -85,21 +74,32 @@ class Grid:
             return self.data[row][column]
 
     def num_paths(self):
-        pass
+        paths = self.traverse(self.root(), 0)
+        return paths
 
-    def depth_traversal(self, grid):
-        pass
+    def traverse(self, current_node, total):
+        current_node.loc()
+
+        if(current_node.right):
+            self.traverse(current_node.right, total)
+        elif(current_node.down):
+            self.traverse(current_node.down, total)
+
+        if(current_node == self.end()):
+            total = total + 1
 
 
-size = 2
-grid = Grid(size)
-grid.fill()
-grid.display()
-root = grid.root()
-print(root)
-import pdb; pdb.set_trace()
+def example():
+    grid = Grid(2)
+    grid.fill()
+    # grid.display()
+    print("Num paths:", grid.num_paths())
 
-"""
-print(num_paths(6))
-print(num_paths(20))
-"""
+def solution():
+    grid = Grid(20)
+    grid.fill()
+    print(grid.num_paths())
+
+example()
+
+
