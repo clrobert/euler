@@ -1,11 +1,14 @@
 import math
 
-def factorial(num):
-    for index in range(num, 0, -1):
-        num = num * index
-    return num
 
-def is_prime(num):
+def factorial(num):
+    y = num
+    for index in range(num - 1, 0, -1):
+        y = y * index
+    return y
+
+
+def is_prime(n):
     if n == 0 or n == 1:
         return False
     if n % 2 == 0 and n > 2:
@@ -15,4 +18,7 @@ def is_prime(num):
             return False
     return True
 
+
+def binomial(n, k):
+    return factorial(n) / (factorial(k) * factorial(n - k))
 
