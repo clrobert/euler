@@ -39,3 +39,40 @@ input_string = """
     and requires a clever method! ;o)
 """
 
+nums = input_string.split('\n')
+rows = [num.strip() for num in nums if num is not '']
+num_rows = []
+
+for row in rows:
+    num_rows.append(row.split(' '))
+
+
+def choose_largest(row, column):
+    current = num_rows[row][column]
+    print(current)
+
+    the_sum = 0
+
+    for index in range(0, len(num_rows)):
+        try:
+            left = int(num_rows[index + 1][column])
+        except IndexError:
+            pass
+
+        try:
+            right = int(num_rows[index + 1][column + 1])
+        except IndexError:
+            pass
+
+        if left > right:
+            the_sum = the_sum + left
+            print(left)
+        else:
+            the_sum = the_sum + right
+            column = column + 1
+            print(right)
+
+    return the_sum
+
+ans = choose_largest(0, 0)
+print("Sum: ", ans)
