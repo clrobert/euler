@@ -76,3 +76,61 @@ def choose_largest(row, column):
 
 ans = choose_largest(0, 0)
 print("Sum: ", ans)
+
+"""
+    Insight: I think we want something like the mode of indexes of maximums.
+    By that I mean, we create tuples (index, value)
+    and order by value, of each row.
+    Then we try to find the path with the min distance.
+    I'm not 100% sure this will yield a different algo.
+    There is probably a tweak here somewhere.
+    Let me try my prev. algo from the bottom, via max.
+    Not entirely aware of everything.
+
+    Hmm, no. two are the same.
+    I think we should calc first five top rows, max that.
+    The top rows have less influence
+    in terms of value because they are common to far more rows. five or height/2.
+"""
+
+def choose_largest2(row, column):
+    current = num_rows[row][column]
+    print(current)
+
+    the_sum = 0
+
+    for index in range(len(num_rows), 0, -1):
+        try:
+            left = int(num_rows[index - 1][column - 1])
+        except IndexError:
+            pass
+
+        try:
+            right = int(num_rows[index - 1][column])
+        except IndexError:
+            pass
+
+        if left > right:
+            the_sum = the_sum + left
+            print(left)
+        else:
+            the_sum = the_sum + right
+            column = column + 1
+            print(right)
+
+    return the_sum
+
+
+def get_top_half(num_rows):
+    end = len(num_rows + 1)
+    top_nums = []
+
+    for index, item in num_rows[end]:
+        if item > max_num:
+            max_num = item
+            max_index = index
+            
+
+
+
+
