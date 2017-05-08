@@ -69,18 +69,34 @@ def is_sunday(day):
     return day % 7 + 1 == 7
 
 
-def num_sundays():
+def get_offset(start):
     offset = 0
-    sundays = 0
-    for year in range(1901, 2001):
-        num_days = num_days_in_year(year)
+    for year in range(1900, start):
+        offset = (offset + num_days_in_year(year)) % 7
+    return offset
 
+
+def num_sundays(start, end):
+    offset = get_offset(start)
+    sundays = 0
+    first_sundays = 0
+    firsts = 0
+
+    for year in range(start, end):
+        num_days = num_days_in_year(year)
         for day in range(1, num_days + 1):
             if is_sunday(day + offset):
-                if is_first_of_month(day, is_leap_year(year)):
-                    sundays += 1
+                sundays += 1
+            if is_first_of_month(day, is_leap_year(year)):
+                firsts += 1
+            if is_sunday(day + offset) and is_first_of_month(
+                    day,
+                    is_leap_year(year)):
+                first_sundays += 1
 
         offset = (offset + num_days) % 7
-    return sundays
+    return sundays, firsts, first_sundays
 
-print(num_sundays())
+# print(num_sundays(2012, 2013))
+print(num_sundays(1901, 2001))
+print(num_sundays(1901, 1902))
