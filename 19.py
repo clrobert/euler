@@ -100,3 +100,18 @@ def num_sundays(start, end):
 # print(num_sundays(2012, 2013))
 print(num_sundays(1901, 2001))
 print(num_sundays(1901, 1902))
+
+import datetime
+
+def test_solution():
+    first_sundays = 0
+    for y in range(1901, 2001):
+        for m in range (1, 12):
+            date = datetime.datetime(y, m, 1)
+            if date.weekday() == 6:
+                first_sundays += 1
+    return first_sundays
+
+print(test_solution())
+print(num_sundays(1901, 2001) == test_solution())
+
