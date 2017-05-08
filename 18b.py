@@ -129,8 +129,5 @@ def get_top_half(num_rows):
         if item > max_num:
             max_num = item
             max_index = index
-            
-
-
 
 
