@@ -1,3 +1,5 @@
+import datetime
+
 """
 You are given the following information, but you may prefer to do some research
 for yourself.
@@ -48,25 +50,25 @@ def is_first_of_month(day, is_leap_year):
     that given int is the first of the month in a given year.
     """
 
-    months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 31, 31]
+    months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
     if is_leap_year:
         months[2] += 1
 
     total = 0
     month = 0
-    while(day >= total):
+    while(day > total):
         total = total + months[month]
         month = month + 1
 
-    if day == total - months[month - 1] + 1 or day == 1:
+    if day == total - months[month - 1] + 1:
         return True
     else:
         return False
 
 
 def is_sunday(day):
-    return day % 7 + 1 == 7
+    return day % 7 == 0
 
 
 def get_offset(start):
@@ -82,7 +84,7 @@ def num_sundays(start, end):
     first_sundays = 0
     firsts = 0
 
-    for year in range(start, end):
+    for year in range(start, end + 1):
         num_days = num_days_in_year(year)
         for day in range(1, num_days + 1):
             if is_sunday(day + offset):
@@ -97,21 +99,20 @@ def num_sundays(start, end):
         offset = (offset + num_days) % 7
     return sundays, firsts, first_sundays
 
-# print(num_sundays(2012, 2013))
-print(num_sundays(1901, 2001))
-print(num_sundays(1901, 1902))
 
-import datetime
-
-def test_solution():
+def test_solution(start, end):
     first_sundays = 0
-    for y in range(1901, 2001):
-        for m in range (1, 12):
+    for y in range(start, end + 1):
+        for m in range(1, 13):
             date = datetime.datetime(y, m, 1)
             if date.weekday() == 6:
                 first_sundays += 1
     return first_sundays
 
-print(test_solution())
-print(num_sundays(1901, 2001) == test_solution())
+print(get_offset(1901))
 
+print(num_sundays(1901, 1902))
+print(test_solution(1901, 1902))
+print(num_sundays(1901, 2000))
+print(test_solution(1901, 2000))
+print(num_sundays(1901, 2000) == test_solution(1901, 2000))
