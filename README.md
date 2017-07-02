@@ -1,4 +1,5 @@
-PROJECT EULER
+You know, getting better at stuff.
 ======================
-WIP: 18, 19, 26
+WIP: 
+euler: 18, 19, 26
 
