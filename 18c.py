@@ -130,7 +130,7 @@ def get_left_path(adj_lists, path, row_pointer):
     if adj_lists:
         get_left_path(adj_lists, path, row_pointer)
     else:
-        return path.append(root[0])
+        return path.append(root[1])
 
 
 def get_right_path(adj_lists, path, row_pointer):
@@ -155,9 +155,9 @@ adj_lists = get_adj_lists(triangle_nums)
 print(adj_lists)
 
 path = []
-# get_left_path(adj_lists, path, 1)
+get_left_path(adj_lists, path, 1)
 
-get_right_path(adj_lists, path, 2)
+#get_right_path(adj_lists, path, 2)
 print(path)
 print(sum(path))
 """
